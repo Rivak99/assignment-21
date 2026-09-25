@@ -1,10 +1,10 @@
 1) CREATE DATABASE university_db;
 2) CREATE TABLE departments (
-    dept_id INT PRIMARY KEY,
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
     dept_name VARCHAR(50) NOT NULL
 );
 3) CREATE TABLE courses(
-     course_id INT PRIMARY KEY,
+     course_id INT PRIMARY KEY AUTO_INCREMENT,
     * course_name VARCHAR(50) NOT NULL,
     * credits INT NOT NULL DEFAULT 3,
     * dept_id INT,
@@ -12,18 +12,18 @@
     
 );
 4) CREATE TABLE students(
-    student_id PRIMARY KEY,
+    student_id PRIMARY KEY AUTO_INCREMENT,
     student_name VARCHAR(50) NOT NULL
 );
 5) CREATE TABLE enrollments(
-     enrollment_id INT PRIMARY KEY,
+     enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
      student_id INT (foreign key),
     course_id INT (foreign key),
     FOREIGN KEY(student_id)REFERENCES students(student_id) ON DELETE CASCADE,
     FOREIGN KEY(course_id) REFERENCES courses(course_id) ON DELETE CASCADE
 );
 6) CREATE TABLE health_records(
-     record_id INT PRIMARY KEY,
+     record_id INT PRIMARY KEY AUTO_INCREMENT,
      student_id INT ,
      blood_group VARCHAR(10),
      FOREIGN KEY(student_id) REFERENCES students(student_id) ON DELETE CASCADE
